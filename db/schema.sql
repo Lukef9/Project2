@@ -20,7 +20,7 @@ game_name VARCHAR(255) UNIQUE NOT NULL,
 directions TEXT,
 game_image TEXT,
 date_added TIMESTAMP NOT NULL DEFAULT NOW(),
-number_of_players INTEGER REFERENCES players (players_id) ON DELETE CASCADE,
+players_id INTEGER REFERENCES players (players_id) ON DELETE CASCADE,
 type_id INTEGER REFERENCES types (type_id) ON DELETE CASCADE
 );
 

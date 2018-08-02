@@ -15,7 +15,7 @@ VALUES(1),
 (9),
 (10);
 
-INSERT INTO games (game_name, directions, game_image, number_of_players, type_id)
+INSERT INTO games (game_name, directions, game_image, players_id, type_id)
 VALUES 
 ('sorry', 'destroy your friends','img url', 1, 1),
 ('monopoly', 'destroy some friends','img url', 2, 2);
