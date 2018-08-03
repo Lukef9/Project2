@@ -9,4 +9,13 @@ module.exports = {
     ON g.players_id = p.players_id;
   `);
   },
+  findByName(name) {
+    return db.one(`
+    SELECT g.*, p.players_number
+    FROM games g
+    JOIN players p
+    ON g.players_id = p.players_id
+    WHERE g.game_name = $1;
+    `, name);
+  },
 };

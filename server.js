@@ -9,6 +9,9 @@ const gamesRouter = require('./routers/gamesRouter');
 // global variables
 const PORT = process.env.PORT || 3000;
 
+// set view engine
+app.set('view engine', 'ejs');
+
 // use apis
 app.use(bodyParser.json());
 app.use(logger('dev'));
