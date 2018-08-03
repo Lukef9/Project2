@@ -8,8 +8,11 @@ const gamesRouter = express.Router();
 const showJson = (req, res) => {
   res.json(res.locals.games);
 };
+
 gamesRouter.route('/:name').get(gamesController.storeOneByName, showJson);
 
-gamesRouter.route('/').get(gamesController.storeAll, viewController.showAll);
+gamesRouter.route('/')
+  .post(gamesController.storeAll, viewController.showAll)
+  .get(gamesController.storeAll, viewController.showAll);
 
 module.exports = gamesRouter;

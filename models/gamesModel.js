@@ -18,13 +18,13 @@ module.exports = {
     WHERE g.game_name = $1;
     `, name);
   },
-  findById(id) {
+  createGame(game) {
     return db.one(`
-    SELECT g.*, p.players_number
-    FROM games g
-    JOIN players p
-    ON g.players_id = p.players_id
-    WHERE g.game_id = $1;
-    `, id);
+    INSERT INTO games
+    (game_name, directions, game_image, players_id, type_id)
+    VALUES
+    ($/game_name/, $/directions/, $/game_image/, $/players_id/, $/type_id/)
+    RETURNING *
+    `, game);
   },
 };

@@ -16,7 +16,7 @@ players_number INTEGER NOT NULL
 
 CREATE TABLE games (
 game_id SERIAL PRIMARY KEY,
-game_name VARCHAR(255) UNIQUE NOT NULL,
+game_name VARCHAR(255) NOT NULL,
 directions TEXT,
 game_image TEXT,
 date_added TIMESTAMP NOT NULL DEFAULT NOW(),
