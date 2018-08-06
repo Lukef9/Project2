@@ -6,9 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>All Games</title>
 </head>
+<header>
+  <nav> Hello </nav>
+</header>
 <body>
-  <% games.forEach((games) => { %>
-    <p><%= games.game_name; %> <%= games.players_number; %></p>
-  <% }); %>
+  <div>
+  <aside>
+    test
+  </aside>
+  <main>
+    <% games.forEach((games) => { %>
+      <p><%= games.game_name; %> <%= games.players_number; %></p>
+    <% }); %>
+  
+    <% categories.forEach((categories) => { %>
+      <p><%= categories.category_name; %></p>
+    <% }); %>
+    </main>
+  </div>
 </body>
 </html>

@@ -7,12 +7,12 @@ module.exports = {
     FROM categories c
   `);
   },
-  findCategoryByName(name) {
+  findCategoryByName(id) {
     return db.one(`
     SELECT *
     FROM categories c
-    WHERE c.category_name = $1;
-    `, name);
+    WHERE c.category_id = $1;
+    `, id);
   },
   createCategory(category) {
     return db.one(`
@@ -33,7 +33,7 @@ module.exports = {
     return db.one(`
       UPDATE categories
       SET category_name = $/category_name/
-      WHERE category_id = $/category_id/
+      WHERE category_git id = $/category_id/
       RETURNING *;
       `, category);
   },
