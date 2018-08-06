@@ -16,7 +16,7 @@
   </aside>
   <main>
     <% games.forEach((games) => { %>
-      <p><%= games.game_name; %> <%= games.players_number; %></p>
+      <p><%= games.game_name; %> can be played by <%= games.min_players; %> - <%= games.max_players; %> players</p>
     <% }); %>
   
     <% categories.forEach((categories) => { %>

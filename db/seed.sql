@@ -3,22 +3,11 @@ VALUES('board'),
 ('card'),
 ('other');
 
-INSERT INTO players (players_number)
-VALUES(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10);
 
-INSERT INTO games (game_name, directions, game_image, players_id, type_id)
+INSERT INTO games (game_name, directions, game_image, min_players, max_players, type_id)
 VALUES 
-('sorry', 'destroy your friends','img url', 1, 1),
-('monopoly', 'destroy some friends','img url', 2, 2);
+('sorry', 'destroy your friends','img url', 2, 4, 1),
+('monopoly', 'destroy some friends','img url', 2, 8, 2);
 
 INSERT INTO categories (category_name)
 VALUES

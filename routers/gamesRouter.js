@@ -17,6 +17,3 @@ gamesRouter.route('/')
   .post(gamesController.save, viewController.createGame);
 
 module.exports = gamesRouter;
-
-
-// 

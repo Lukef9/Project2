@@ -2,17 +2,12 @@ DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS games_categories;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS types;
-DROP TABLE If EXISTS players;
 
 CREATE TABLE types (
 type_id SERIAL PRIMARY KEY,
 type_name VARCHAR(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE players (
-players_id SERIAL PRIMARY KEY,
-players_number INTEGER NOT NULL
-);
 
 CREATE TABLE games (
 game_id SERIAL PRIMARY KEY,
@@ -20,7 +15,8 @@ game_name VARCHAR(255) NOT NULL,
 directions TEXT,
 game_image TEXT,
 date_added TIMESTAMP NOT NULL DEFAULT NOW(),
-players_id INTEGER REFERENCES players (players_id) ON DELETE CASCADE,
+min_players INTEGER NOT NULL,
+max_players INTEGER NOT NULL,
 type_id INTEGER REFERENCES types (type_id) ON DELETE CASCADE
 );
 

@@ -3,27 +3,23 @@ const db = require('../dbConfig/connection');
 module.exports = {
   findAll() {
     return db.many(`
-    SELECT g.*, p.players_number
+    SELECT g.*
     FROM games g
-    JOIN players p
-    ON g.players_id = p.players_id;
   `);
   },
   findByName(name) {
     return db.one(`
-    SELECT g.*, p.players_number
+    SELECT g.*
     FROM games g
-    JOIN players p
-    ON g.players_id = p.players_id
     WHERE g.game_name = $1;
     `, name);
   },
   createGame(game) {
     return db.one(`
     INSERT INTO games
-    (game_name, directions, game_image, players_id, type_id)
+    (game_name, directions, game_image, min_players, max_players, type_id)
     VALUES
-    ($/game_name/, $/directions/, $/game_image/, $/players_id/, $/type_id/)
+    ($/game_name/, $/directions/, $/game_image/, $/min_players/, $/max_players/, $/type_id/)
     RETURNING *
     `, game);
   },
