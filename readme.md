@@ -1,4 +1,7 @@
 https://www.w3schools.com/sql/sql_datatypes.asp 
+https://bulma.io/documentation/overview/start/
+https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only
+https://www.npmjs.com/package/method-override
 
 # Don't Be Board
 Don't Be Board is here to help you relieve your boardom, settle disputes on rules and find games your didn't know existed. You can search for a single game by name, check out a whole category of games, search by number of players or search by all! Can't decide on a game, NO PROBLEM, click on the random game button and start learning and playing a new game now!

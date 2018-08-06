@@ -2,7 +2,7 @@
 const app = require('express')();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
+const methodOverride = require('method-override');
 
 const gamesRouter = require('./routers/gamesRouter');
 
@@ -13,8 +13,10 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 // use apis
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use(methodOverride('__method'));
 
 app.use('/games', gamesRouter);
 

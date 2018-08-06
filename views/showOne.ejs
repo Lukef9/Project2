@@ -1,0 +1,12 @@
+<%- include('./partials/head') %>
+<%- include('./partials/header_nav') %>
+
+<body>
+  <div>
+      <p><%= games.game_name; %> can be played by <%= games.min_players; %> - <%= games.max_players; %> players</p>
+      <form action="/games/<%=games.game_id%>?__method=DELETE" method="post">
+        <button type="submit"> Delete Game </button>
+      </form>
+  </div>
+</body>
+</html>

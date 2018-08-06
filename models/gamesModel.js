@@ -4,15 +4,15 @@ module.exports = {
   findAll() {
     return db.many(`
     SELECT g.*
-    FROM games g
+    FROM games g;
   `);
   },
-  findByName(name) {
+  findById(id) {
     return db.one(`
     SELECT g.*
     FROM games g
-    WHERE g.game_name = $1;
-    `, name);
+    WHERE g.game_id = $1;
+    `, id);
   },
   createGame(game) {
     return db.one(`
@@ -20,7 +20,13 @@ module.exports = {
     (game_name, directions, game_image, min_players, max_players, type_id)
     VALUES
     ($/game_name/, $/directions/, $/game_image/, $/min_players/, $/max_players/, $/type_id/)
-    RETURNING *
+    RETURNING *;
     `, game);
+  },
+  destroy(id) {
+    return db.none(`
+    DELETE FROM games
+    WHERE game_id = $1;
+    `, id);
   },
 };
