@@ -1,8 +1,7 @@
-const express = require('express');
-
-const gamesController = require('../controllers/gamesController');
+const express              = require('express');
+const gamesController      = require('../controllers/gamesController');
 const categoriesController = require('../controllers/categoriesController');
-const viewController = require('../controllers/viewController');
+const viewController       = require('../controllers/viewController');
 
 const gamesRouter = express.Router();
 
