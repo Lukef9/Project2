@@ -23,6 +23,18 @@ module.exports = {
     RETURNING *;
     `, game);
   },
+  update(game) {
+    return db.one(`
+    UPDATE games
+    SET game_name = $/game_name/, 
+    directions= $/directions/, 
+    game_image = $/game_image/, 
+    min_players = $/min_players/, 
+    max_players = $/max_players/
+    WHERE game_id = $/game_id/
+    RETURNING *;
+    `, game);
+  },
   destroy(id) {
     return db.none(`
     DELETE FROM games

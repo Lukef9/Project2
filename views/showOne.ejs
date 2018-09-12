@@ -2,11 +2,13 @@
 <%- include('./partials/header_nav') %>
 
 <body>
-  <div>
+  <section class="container" style="background-image: url(<%= games.game_image %>);">
       <p><%= games.game_name; %> can be played by <%= games.min_players; %> - <%= games.max_players; %> players</p>
+      <p><%= games.directions; %></p>
       <form action="/games/<%=games.game_id%>?__method=DELETE" method="post">
         <button type="submit"> Delete Game </button>
       </form>
-  </div>
+      <a class= 'button is-rounded' href='/games/<%=games.game_id%>/edit' > edit game</a>
+    </section>
 </body>
 </html>

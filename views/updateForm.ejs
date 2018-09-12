@@ -1,0 +1,42 @@
+<%- include('./partials/head') %>
+<%- include('./partials/header_nav') %>
+<body>
+  <form action="/games/<%=games.game_id%>?__method=PUT" method="POST">
+    <label for="game_name">Enter new game name:
+      <input type="text" name="game_name" id='game_name' value="<%= games.game_name%>">
+    </label> <br>
+
+    <label for="min_players">Enter the minimum amount of players needed to play: 
+        <input type="number"  min='1' name="min_players" id='min_players' value="<%= games.min_players%>">
+    </label><br>
+    
+    <label for="max_players">Enter the maximum amount of players that can play: 
+        <input type="number" min='1' name="max_players" id='max_players' value="<%= games.max_players%>">
+    </label><br>
+    
+    <label for="type_id">Enter the type of game: 
+        <input type="number" min='1' name="type_id" id='type_id' value="<%= games.type_id%>">
+    </label><br>
+
+    <label for="directions">Enter directions:
+        <textarea class="textarea" name="directions" id='directions' ><%= games.directions%></textarea>
+    </label> <br>
+    
+    <label for="game_image">Enter link to image:
+        <input type="text" name="game_image" id='game_image' value="<%= games.game_image%>">
+    </label> <br>
+
+    <label>Select categories that apply:</label>
+    <% categories.forEach((categories) => { %>
+      <label for="category"><%= categories.category_name; %> 
+          <input type="checkbox" name="category" id='category'>
+        </label>
+    <% }); %>
+    <br>
+    <input type="submit">
+
+    
+
+  </form>
+</body>
+</html>

@@ -2,13 +2,20 @@ module.exports = {
   showAll(req, res) {
     res.render('showAll');
   },
-  createGame(req, res) {
-    res.render('createForm');
-  },
   showOne(req, res) {
     res.render('showOne');
   },
+  createGame(req, res) {
+    res.render('createForm');
+  },
+  updateGame(req, res) {
+    res.render('updateForm');
+  },
   redirectShowAll(req, res) {
     res.redirect('/games');
+  },
+  redirectShowOne(req, res) {
+    console.log(res.locals);
+    res.redirect(`/games/${res.locals.games.game_id}`);
   },
 };

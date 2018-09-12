@@ -9,13 +9,16 @@ const gamesRouter = express.Router();
 // const showJson = (req, res) => {
 //   res.json(res.locals.games, res.locals.categories);
 // };
+gamesRouter.route('/:id/edit')
+  .get(gamesController.storeOneById, categoriesController.storeAllCategories, viewController.updateGame);
 
 gamesRouter.route('/new')
   .get(categoriesController.storeAllCategories, viewController.createGame);
 
 gamesRouter.route('/:id')
   .get(gamesController.storeOneById, viewController.showOne)
-  .delete(gamesController.destroy, viewController.redirectShowAll);
+  .delete(gamesController.destroy, viewController.redirectShowAll)
+  .put(gamesController.update, viewController.redirectShowOne);
 
 gamesRouter.route('/')
   .get(gamesController.storeAll, categoriesController.storeAllCategories, viewController.showAll)

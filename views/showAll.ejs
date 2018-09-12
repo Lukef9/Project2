@@ -2,19 +2,22 @@
 <%- include('./partials/header_nav') %>
 
 <body>
-  <div>
+  
     <% games.forEach((games) => { %>
-      <div>
+      <section class="container" >
         <p><%= games.game_name; %> can be played by <%= games.min_players; %> - <%= games.max_players; %> players</p>
-        <form action="/games/<%=games.game_id%>?__method=DELETE" method="post">
-          <button type="submit"> Delete Game </button>
-        </form>
-      </div>
+        <p>
+          <form action="/games/<%=games.game_id%>?__method=DELETE" method="post">
+            <button type="submit"> Delete Game </button>
+          </form>
+          <a class= 'button is-square' href='/games/<%=games.game_id%>/' > more details</a>
+          <a class= 'button is-square' href='/games/<%=games.game_id%>/edit' > edit game</a>
+        </section>
+      </p>
     <% }); %>
   
-    <% categories.forEach((categories) => { %>
-      <p><%= categories.category_name; %></p>
-    <% }); %>
-  </div>
+  <!-- <% categories.forEach((categories) => { %>
+    <p><%= categories.category_name; %></p>
+  <% }); %> -->
 </body>
 </html>

@@ -19,6 +19,14 @@ module.exports = {
       next();
     }).catch(e => (e));
   },
+  update(req, res, next) {
+    const updatedGame = req.body;
+    updatedGame.game_id = req.params.id;
+    db.update(updatedGame).then((newGame) => {
+      res.locals.games = newGame;
+      next();
+    }).catch(e => (e));
+  },
   destroy(req, res, next) {
     db.destroy(req.params.id).then(() => {
       next();
